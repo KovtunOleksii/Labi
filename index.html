@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Notepad - untitled.txt</title> <!-- Спочатку untitled.txt -->
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Consolas', monospace;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      font-size: 14px;
+      resize: none;
+      border: none;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <textarea id="editor" spellcheck="false"></textarea>
+  <script src="renderer.js"></script>
+</body>
+</html>

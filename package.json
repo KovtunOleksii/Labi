@@ -1,0 +1,16 @@
+{
+  "name": "six-power-rehabilitate-xhhv8",
+  "productName": "six-power-rehabilitate-xhhv8",
+  "description": "My Electron application description",
+  "keywords": [],
+  "main": "./main.js",
+  "version": "1.0.0",
+  "author": "kovtun_oleksii",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "35.0.0"
+  }
+}
