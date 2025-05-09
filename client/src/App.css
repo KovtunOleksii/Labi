@@ -1,0 +1,201 @@
+/* Базові стилі для всієї сторінки */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #F5F5F5;
+  color: #333333;
+}
+
+/* Навігація */
+.navbar {
+  background-color: #120b0c !important;
+}
+
+.navbar-brand,
+.nav-link,
+.navbar-nav .dropdown-toggle {
+  color: #d88b42 !important;
+}
+
+.nav-link:hover,
+.navbar-nav .dropdown-toggle:hover {
+  color: #bec6c8 !important;
+}
+
+.navbar-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.navbar-nav .dropdown-menu {
+  background-color: #120b0c;
+}
+
+.navbar-nav .dropdown-item {
+  color: #d88b42;
+}
+
+.navbar-nav .dropdown-item:hover {
+  background-color: #bec6c8;
+  color: #120b0c;
+}
+
+/* Контейнер */
+.container {
+  padding: 20px;
+}
+
+/* Заголовки */
+h1, h2, h3, h4, h5, h6 {
+  color: #120b0c;
+}
+
+/* Модальні вікна */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #FFFFFF;
+  padding: 20px;
+  border-radius: 5px;
+  z-index: 1001;
+  width: 400px;
+  max-width: 90%;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-close-btn {
+  cursor: pointer;
+}
+
+/* Кнопки */
+.btn-primary {
+  background-color: #bec6c8;
+  border-color: #bec6c8;
+  color: #120b0c;
+}
+
+.btn-primary:hover {
+  background-color: #d88b42;
+  border-color: #d88b42;
+  color: #120b0c;
+}
+
+.btn-outline-primary {
+  color: #bec6c8;
+  border-color: #bec6c8;
+}
+
+.btn-outline-primary:hover {
+  background-color: #d88b42;
+  color: #120b0c;
+  border-color: #d88b42;
+}
+
+/* Кнопка "Вхід" у навігації */
+.navbar .btn-outline-light {
+  color: #d88b42;
+  border-color: #d88b42;
+}
+
+.navbar .btn-outline-light:hover {
+  background-color: #bec6c8;
+  color: #120b0c;
+  border-color: #bec6c8;
+}
+
+/* Кнопка "Завантажити" і "Оплатити" у таблиці */
+.btn-sm.btn-link {
+  color: #bec6c8;
+}
+
+.btn-sm.btn-link:hover {
+  color: #d88b42;
+}
+
+.btn-sm.btn-success {
+  background-color: #bec6c8;
+  border-color: #bec6c8;
+  color: #120b0c;
+}
+
+.btn-sm.btn-success:hover {
+  background-color: #d88b42;
+  border-color: #d88b42;
+  color: #120b0c;
+}
+
+/* Картки (тренери, розклад) */
+.card {
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.trainer-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* Таблиця бронювань */
+.table {
+  background-color: #FFFFFF;
+}
+
+.table th {
+  background-color: #120b0c;
+  color: #d88b42;
+}
+
+.table td {
+  color: #333333;
+}
+
+/* Зображення на головній сторінці */
+.home-img {
+  width: 600px;
+  max-height: 400px;
+  min-height: 300px;
+  object-fit: cover;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+  .home-img {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 576px) {
+  .modal-content {
+    width: 90%;
+  }
+  .home-img {
+    max-width: 100%;
+  }
+}
