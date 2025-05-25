@@ -1,75 +1,48 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { useRouter } from 'expo-router';
+import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { Colors } from '../../constants/Colors';
+import { globalStyles } from '../../constants/Styles';
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+const LOGO_URL = 'https://raw.githubusercontent.com/KovtunOleksii/Labi/mkr2/client/public/Logo.png';
+const STADIUM_URL = 'https://raw.githubusercontent.com/KovtunOleksii/Labi/mkr2/client/public/stadium.jpg';
 
 export default function HomeScreen() {
+  const router = useRouter();
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <ScrollView style={globalStyles.container}>
+      <View style={[globalStyles.contentContainer, { alignItems: 'center' }]}>
+        <Image source={{ uri: LOGO_URL }} style={globalStyles.avatar} />
+        <Text style={[globalStyles.title, { textAlign: 'center' }]}>
+          Спортивний комплекс імені Володимира Окіпного
+        </Text>
+        <Text style={[globalStyles.text, { textAlign: 'center', marginBottom: 16 }]}>
+          Ласкаво просимо до нашого комплексу! Ми пропонуємо різноманітні спортивні секції для дітей та дорослих.
+        </Text>
+        <Text style={[globalStyles.text, { textAlign: 'center', color: Colors.light.textDim }]}>
+          <Text style={{ fontWeight: 'bold' }}>Контакти:</Text> бульвар Шевченка, 4, м. Ромни, Сумська область | Тел: +380 54 445 1601
+        </Text>
+      </View>
+      <Image source={{ uri: STADIUM_URL }} style={globalStyles.homeImage} />
+      <View style={[globalStyles.contentContainer, globalStyles.row, { justifyContent: 'space-around' }]}>
+        <TouchableOpacity 
+          style={globalStyles.button} 
+          onPress={() => router.push('/(tabs)/coaches')}
+        >
+          <Text style={globalStyles.buttonText}>Тренери</Text>
+        </TouchableOpacity>
+        <TouchableOpacity 
+          style={globalStyles.button} 
+          onPress={() => router.push('/(tabs)/sections')}
+        >
+          <Text style={globalStyles.buttonText}>Секції</Text>
+        </TouchableOpacity>
+        <TouchableOpacity 
+          style={globalStyles.button} 
+          onPress={() => router.push('/(tabs)/bookings')}
+        >
+          <Text style={globalStyles.buttonText}>Мої записи</Text>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});
